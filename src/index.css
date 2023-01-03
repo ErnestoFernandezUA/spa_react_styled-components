@@ -44,3 +44,7 @@ body {
   font-weight: var(--fw-light);
   background-color: var(--colors-bg);
 }
+
+* input {
+  font-family: var(--family);
+}
