@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { IoMoon, IoMoonOutline, IoSearch } from 'react-icons/io5';
+import { IoMoon, IoMoonOutline } from 'react-icons/io5';
 import { useEffect, useState } from 'react';
 
 import { Container } from './Container';

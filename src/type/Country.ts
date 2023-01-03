@@ -45,7 +45,7 @@ export type Country = {
     it: string;
     hu: string;
   },
-  flags: string[];
+  flags: { png: string; svg: string; };
   regionalBlocs: [
     {
       acronym: string;
@@ -69,5 +69,5 @@ export type CountryHalf = {
   region: string;
   continent: string;
   population: number;
-  flags: string[];
+  flags: { png: string; svg: string; };
 }
