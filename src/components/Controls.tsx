@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { Search } from './Search';
 import { CustomSelect } from './CustomSelect';
@@ -23,17 +23,30 @@ const Wrapper = styled.div`
   }
 `;
 
+interface ControlsProps {
+  onSearch: (search: string, region?: any ) => void;
+}
 
-const Controls = () => {
+const Controls: FC<ControlsProps> = ({
+  onSearch,
+}) => {
   const [search, setSearch] = useState('');
-  const [region, setRegion] = useState<string | unknown>('');
+  const [region, setRegion] = useState<any>('');
+  console.log(search,region);
+
+  useEffect(() => {
+    console.log(region);
+    let regionValue = region?.value || '';
+
+    onSearch(search, regionValue);
+  }, [search, region])
 
   return (  
     <Wrapper>
       <Search search={search} setSearch={setSearch} />
       <CustomSelect 
         options={options}
-        placeholder="Filter by region..."
+        placeholder="Filter by Region"
         isClearable
         isSearchable={false}
         value={region}

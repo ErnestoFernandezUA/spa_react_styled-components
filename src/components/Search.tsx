@@ -32,7 +32,7 @@ const Input = styled.input.attrs({
   color: var(--color-text);
   
   & div[search-clear] {
-    border: 1px solid red;
+    // border: 1px solid red;
   }
 `;
 
