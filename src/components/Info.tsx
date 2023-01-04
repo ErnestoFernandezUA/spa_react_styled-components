@@ -2,6 +2,7 @@ import { FC, useMemo } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { Country } from "../type/Country";
+import { Button } from "./Button";
 
 const Wrapper = styled.section`
   margin-top: 3rem;
@@ -80,14 +81,18 @@ const TagGroup = styled.div`
   flex-direction: row;
 `;
 
-const Tag = styled(Link)`
+// const Tag = styled(Link)`
+//   padding: 0 1rem;
+//   background-color: var(--color-ui-base);
+//   box-shadow: var(--shadow);
+//   line-height: 1.5;
+//   cursor: pointer;
+//   text-decoration: none;
+//   color: var(--color-text);
+// `;
+
+const Tag = styled(Button)`
   padding: 0 1rem;
-  background-color: var(--color-ui-base);
-  box-shadow: var(--shadow);
-  line-height: 1.5;
-  cursor: pointer;
-  text-decoration: none;
-  color: var(--color-text);
 `;
 
 
