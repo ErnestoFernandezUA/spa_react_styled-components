@@ -4,8 +4,14 @@ import { useEffect, useState } from 'react';
 import { IoArrowBack } from 'react-icons/io5';
 import { Country } from "../type/Country";
 import { getCountry } from "../api/country";
+import { Button } from "../components/Button";
+import Info from "../components/Info";
 
-export const Details: FunctionComponent = () => {
+interface DetailsProps {
+  countries: Country[];
+}
+
+export const Details: FunctionComponent<DetailsProps> = ({ countries }) => {
   let { name } = useParams();
   const navigate = useNavigate();
   const [country, setCountry] = useState<Country | null>(null);
@@ -13,21 +19,22 @@ export const Details: FunctionComponent = () => {
   useEffect(() => {
     const fetch = async (value: string) => {
       const response = await getCountry(value);
-      console.log(response);
 
-      setCountry(response);
+      setCountry(response[0]);
     };
-
+    
     if (name) {
       fetch(name).catch(e => console.log(e));
     }
   }, [name])
-
+  
+  console.log(country);
 
   return (
     <div onClick={() => navigate('/')}>
-      <button><IoArrowBack/>Back</button>
-      Details: {name}
+      <Button><IoArrowBack/>Back</Button>
+
+      {country && <Info {...country} countries={countries} />}
     </div>
   );
 } 

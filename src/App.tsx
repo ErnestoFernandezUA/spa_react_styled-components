@@ -6,7 +6,7 @@ import { Details } from './pages/Details';
 import { NotFound } from './pages/NotFound';
 import { Country } from './type/Country';
 import { useEffect, useState } from 'react';
-import { getAllCountryCasual } from './api/country';
+import { getAllCountry } from './api/country';
 
 
 function App() {
@@ -14,7 +14,7 @@ function App() {
 
   useEffect(() => {
     const fetch = async () => {
-      const response = await getAllCountryCasual();
+      const response = await getAllCountry();
       
       setCountries(response);
     }
@@ -33,7 +33,10 @@ function App() {
               countries={countries} 
             />}
           />
-          <Route path="/country/:name" element={<Details />}/>
+          <Route path="/country/:name" element={
+            <Details countries={countries} 
+            />}
+          />
           <Route path="*" element={<NotFound />}/>
         </Routes>
       </Main>
