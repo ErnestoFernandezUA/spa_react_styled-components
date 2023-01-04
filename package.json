@@ -1,8 +1,8 @@
 {
-  "homepage": "https://ErnestoFernandezUA.github.io/template_react_ts",
+  "homepage": "https://ernestofernandezua.github.io/spa_react_styled-components/",
   "name": "template_react_ts",
   "version": "0.1.0",
-  "private": false,
+  "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.1",
     "@testing-library/jest-dom": "^5.16.5",
