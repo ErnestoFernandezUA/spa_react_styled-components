@@ -1,12 +1,12 @@
-import { FunctionComponent, useEffect, useState } from "react";
+import { FunctionComponent, useCallback, useEffect, useState } from "react";
 import { Card } from '../components/Card';
 import Controls from '../components/Controls';
 import { List } from '../components/List';
-import { CountryHalf } from '../type/Country';
+import { Country } from '../type/Country';
 import { useNavigate } from 'react-router-dom'
 
 interface HomePageProps {
-  countries: CountryHalf[];
+  countries: Country[];
 }
 
 export const HomePage: FunctionComponent<HomePageProps> = ({
@@ -15,17 +15,8 @@ export const HomePage: FunctionComponent<HomePageProps> = ({
   const navigate = useNavigate();
   const [filteredCountries, setFilteredCountries] = useState(countries);
 
-  useEffect(() => {
-    setFilteredCountries(countries);
-  }, [countries])
-
-  console.log(filteredCountries);
-
-  const handleSearch = (search: string, region?: string) => {
+  const handleSearch = useCallback((search: string, region?: string) => {
     let data = [...countries];
-
-    console.log(data);
-
 
     if (region) {
       data = data.filter(c => c.region.includes(region));
@@ -36,7 +27,7 @@ export const HomePage: FunctionComponent<HomePageProps> = ({
     }
 
     setFilteredCountries(data);
-  };
+  }, [countries]);
 
   return (
     <>

@@ -32,14 +32,12 @@ const Controls: FC<ControlsProps> = ({
 }) => {
   const [search, setSearch] = useState('');
   const [region, setRegion] = useState<any>('');
-  console.log(search,region);
 
   useEffect(() => {
-    console.log(region);
     let regionValue = region?.value || '';
 
     onSearch(search, regionValue);
-  }, [search, region])
+  }, [search, region, onSearch])
 
   return (  
     <Wrapper>

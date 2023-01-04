@@ -1,26 +1,25 @@
 import { Header } from './components/Header';
 import { Main } from './components/Main';
-// import { Route, Switch } from "react-router";
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { HomePage } from './pages/HomePage';
 import { Details } from './pages/Details';
 import { NotFound } from './pages/NotFound';
-import { CountryHalf } from './type/Country';
+import { Country } from './type/Country';
 import { useEffect, useState } from 'react';
-import { getAllCountryHalf } from './api/country';
+import { getAllCountryCasual } from './api/country';
 
 
 function App() {
-  const [countries, setCountries] = useState<CountryHalf[]>([]);
+  const [countries, setCountries] = useState<Country[]>([]);
 
   useEffect(() => {
     const fetch = async () => {
-      const response = await getAllCountryHalf();
+      const response = await getAllCountryCasual();
       
       setCountries(response);
     }
 
-    fetch();
+    fetch().catch(e => console.log(e));
 
   }, [])
 

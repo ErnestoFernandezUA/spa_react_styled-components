@@ -1,30 +1,30 @@
 export type Country = {
   name: string;
-  topLevelDomain: string[];
-  alpha2Code: string;
-  alpha3Code: string;
-  callingCodes: string[];
+  topLevelDomain?: string[];
+  alpha2Code?: string;
+  alpha3Code?: string;
+  callingCodes?: string[];
   capital: string;
-  altSpellings: string[];
+  altSpellings?: string[];
   region: string;
   continent: string;
   population: number;
-  latlng: number[];
-  demonym: string;
-  area: number;
-  gini: number;
-  timezones: string[];
-  borders: string[];
-  nativeName: string;
-  numericCode: number;
-  currencies: [
+  latlng?: number[];
+  demonym?: string;
+  area?: number;
+  gini?: number;
+  timezones?: string[];
+  borders?: string[];
+  nativeName?: string;
+  numericCode?: number;
+  currencies?: [
     {
       code: string;
       name: string;
       symbol: string;
     }
   ],
-  languages: [
+  languages?: [
     {
       iso639_1: string;
       iso639_2: string;
@@ -32,7 +32,7 @@ export type Country = {
       nativeName: string;
     }
   ],
-  translations: {
+  translations?: {
     br: string;
     pt: string;
     nl: string;
@@ -46,7 +46,7 @@ export type Country = {
     hu: string;
   },
   flags: { png: string; svg: string; };
-  regionalBlocs: [
+  regionalBlocs?: [
     {
       acronym: string;
       name: string;
@@ -59,15 +59,6 @@ export type Country = {
       otherNames: string[];
     }
   ],
-  cioc: string;
-  independent: boolean;
-}
-
-export type CountryHalf = {
-  name: string;
-  capital: string;
-  region: string;
-  continent: string;
-  population: number;
-  flags: { png: string; svg: string; };
+  cioc?: string;
+  independent?: boolean;
 }
