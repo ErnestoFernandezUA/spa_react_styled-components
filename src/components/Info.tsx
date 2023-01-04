@@ -174,7 +174,7 @@ const Info: FC<InfoProps> = ({
                   }}
                 >
                   {b}
-                  <Link to={`../country/${b}`} />
+                  {/* <Link to={`../country/${b}`} /> */}
                 </Tag>
               )}
             </TagGroup>
