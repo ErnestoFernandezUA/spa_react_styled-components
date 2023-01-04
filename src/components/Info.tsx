@@ -80,12 +80,14 @@ const TagGroup = styled.div`
   flex-direction: row;
 `;
 
-const Tag = styled.span`
+const Tag = styled(Link)`
   padding: 0 1rem;
   background-color: var(--color-ui-base);
   box-shadow: var(--shadow);
   line-height: 1.5;
   cursor: pointer;
+  text-decoration: none;
+  color: var(--color-text);
 `;
 
 
@@ -165,18 +167,14 @@ const Info: FC<InfoProps> = ({
             <span>No border countries</span>
           ) : (
             <TagGroup>
-              {bordersArr.map(b => 
+              {bordersArr.map(b => (
                 <Tag
                   key={b} 
-                  onClick={() => {
-                    console.log(`country/${b}`);
-                    navigate(`country/${b}`);
-                  }}
-                >
+                  to={`../country/${b}`}
+                  >
                   {b}
-                  {/* <Link to={`../country/${b}`} /> */}
                 </Tag>
-              )}
+              ))}
             </TagGroup>
           )}               
         </Meta>

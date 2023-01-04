@@ -31,8 +31,8 @@ export const Details: FunctionComponent<DetailsProps> = ({ countries }) => {
   console.log(country);
 
   return (
-    <div onClick={() => navigate('/')}>
-      <Button><IoArrowBack/>Back</Button>
+    <div>
+      <Button onClick={() => navigate('/')}><IoArrowBack/>Back</Button>
 
       {country && <Info {...country} countries={countries} />}
     </div>
