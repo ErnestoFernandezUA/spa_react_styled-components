@@ -1,4 +1,4 @@
-import { FunctionComponent, useCallback, useEffect, useState } from "react";
+import { FunctionComponent, useCallback, useState } from "react";
 import { Card } from '../components/Card';
 import Controls from '../components/Controls';
 import { List } from '../components/List';

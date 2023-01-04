@@ -1,5 +1,5 @@
 import { FC, useMemo } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { Country } from "../type/Country";
 
@@ -174,6 +174,7 @@ const Info: FC<InfoProps> = ({
                   }}
                 >
                   {b}
+                  <Link to={`../country/${b}`} />
                 </Tag>
               )}
             </TagGroup>

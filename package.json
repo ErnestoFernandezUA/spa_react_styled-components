@@ -2,7 +2,7 @@
   "homepage": "https://ErnestoFernandezUA.github.io/template_react_ts",
   "name": "template_react_ts",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.1",
     "@testing-library/jest-dom": "^5.16.5",

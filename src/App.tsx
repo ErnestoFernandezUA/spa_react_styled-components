@@ -29,14 +29,14 @@ function App() {
       <Main>
         <Routes>
           <Route path="/" element={
-            <HomePage 
-              countries={countries} 
-            />}
+            <HomePage countries={countries} />
+            }
           />
           <Route path="/country/:name" element={
-            <Details countries={countries} 
-            />}
+            <Details countries={countries} />
+            }
           />
+          <Route path="/test" element={<>Test</>}/>
           <Route path="*" element={<NotFound />}/>
         </Routes>
       </Main>
