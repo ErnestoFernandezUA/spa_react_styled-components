@@ -1,5 +1,4 @@
 import { FC, useMemo } from "react";
-import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { Country } from "../type/Country";
 import { Button } from "./Button";
@@ -10,6 +9,11 @@ const Wrapper = styled.section`
   display: grid;
   grid-template-columns: 100%;
   gap: 2rem;
+  align-items: start;
+
+  & > div, img {
+    // border: 1px solid red;
+  }
 
   @media(min-width: 767px){
     grid-template-columns: minmax(100px, 400px) 1fr;
@@ -26,6 +30,7 @@ const InfoImage = styled.img`
   width: 100%;
   height: 100%;
   object-fit: contain;
+  object-position: top;
 `;
 
 const InfoTitle = styled.h1`
@@ -114,19 +119,11 @@ const Info: FC<InfoProps> = ({
  borders = [],
  countries = [],
 }) => {
-  const navigate = useNavigate();
-
-  console.log('borders ', borders);
-
   const bordersArr = useMemo(() => borders.map(b => {
-    console.log(b);
-
     return countries.find(c => {
       return c.alpha3Code === b
     })?.name;
   }), [borders, countries]);
-
-  console.log(bordersArr);
 
   return (
     <Wrapper>
