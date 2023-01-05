@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { IoArrowBack, IoMoon, IoMoonOutline } from 'react-icons/io5';
+import { IoArrowBack, IoMoon, IoMoonOutline, IoSunny } from 'react-icons/io5';
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { Container } from './Container';
 import { useAppDispatch, useAppSelector } from '../app/hooks';
@@ -36,6 +36,8 @@ const ModeSwitcher = styled.div`
   font-weight: var(--fw-bold);
   text-transform: capitalize;
   line-height: 2.5rem;
+  display: flex;
+  align-items: center;
 `;
 
 const NavLink = styled(Link)`
@@ -52,6 +54,8 @@ export const Header = () => {
   const theme = useSelector(selectTheme);
   const {pathname} = useLocation();
   const screen = useAppSelector(selectDevice);
+
+  console.log('screen = ', screen);
 
   const toggleTheme = () => dispatch(setTheme(theme === 'light' ? 'dark' : 'light'));
 
@@ -77,7 +81,7 @@ export const Header = () => {
             {theme === 'light' ? (
               <IoMoon size="14px" />
             ) : (
-              <IoMoonOutline size="14px" />
+              <IoSunny size="14px" />
             )}
             {' '}
             <span style={{ marginLeft: '0.75rem' }}>

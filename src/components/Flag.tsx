@@ -7,27 +7,39 @@ const Wrapper = styled.article`
   box-shadow: var(--shadow);
   cursor: pointer;
   overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // width: 10rem;
+  height: 10rem;
+
 `;
 
 const CardImage = styled.img`
   display: block;
   width: 100%;
-  height: 150px;
+  height: 100%;
   object-fit: cover;
   object-position: center;
   box-shadow: var(--shadow);
 `;
 
 const CardBody = styled.div`
-  position: absolute;
+  
 
-  padding: 1.5rem 1.5rem 2rem;
+  // padding: 1.5rem 1.5rem 2rem;
 `;
 
 const CardTitle = styled.h3`
   margin: 0;
+  width: 10rem;
+  height: 10rem;
   font-size: var(--fs-md);
   font-weight: var(--fw-bold);
+  position: relative;
+  top: 50%;
+  margin: auto;
 `;
 
 const CardList = styled.ul`
@@ -62,7 +74,7 @@ export const Flag: FC<CardProps> = ({ img, name, info, onClick }) => {
 
   return (
     <Wrapper onClick={onClick}>
-      <CardTitle>{name}</CardTitle>
+      {/* <CardTitle>{name}</CardTitle> */}
       <CardImage src={img} alt={name}/>
       <CardBody>
         {/* <CardList>
