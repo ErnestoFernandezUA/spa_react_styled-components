@@ -5,34 +5,16 @@ import { HomePage } from './pages/HomePage';
 import { Details } from './pages/Details';
 import { NotFound } from './pages/NotFound';
 import { getAllCountry } from './api/country';
-import { createBrowserRouter } from "react-router-dom";
+import { useAppDispatch } from './app/hooks';
+import { selectTheme } from './features/Options/optionsSlice';
+import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
 
 export async function rootLoader() {
   const response = await getAllCountry();
 
   return response;
 }
-
-// export const router = createBrowserRouter([
-//   {
-//     path: "/",
-//     element: <App />,
-//     errorElement: <NotFound />,
-//     loader: rootLoader,
-//     id: "root",
-//     children: [
-//       {
-//         path: "/home",
-//         element: <HomePage />,
-//         id: "homepage"
-//       },
-//       {
-//         path: "/country/:name",
-//         element: <Details />,
-//       },
-//     ],
-//   },
-// ]);
 
 export const router = createHashRouter([
   {
@@ -56,7 +38,12 @@ export const router = createHashRouter([
 ]);
 
 function App() {
-  console.log('render app');
+  const dispatch = useAppDispatch();
+  const theme = useSelector(selectTheme);
+
+  useEffect(() => {
+    document.body.setAttribute('data-theme', theme);
+  }, [theme]);
 
   return (
     <>

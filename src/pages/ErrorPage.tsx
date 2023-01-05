@@ -1,7 +1,15 @@
-export const ErrorPage = () => {
+import { FunctionComponent } from "react";
+
+interface ErrorPageProps {
+  error: string;
+}
+ 
+const ErrorPage: FunctionComponent<ErrorPageProps> = ({ error }) => {
   return (
     <>
-      ErrorPage
-    </>
+      ErrorPage {error}
+    </> 
   );
 }
+ 
+export default ErrorPage;

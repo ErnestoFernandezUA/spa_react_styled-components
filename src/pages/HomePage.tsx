@@ -3,7 +3,7 @@ import { Card } from '../components/Card';
 import Controls from '../components/Controls';
 import { List } from '../components/List';
 import { Country } from '../type/Country';
-import { useNavigate, useRouteLoaderData } from 'react-router-dom'
+import { useNavigate, useRouteLoaderData } from 'react-router-dom';
 
 export const HomePage: FunctionComponent = () => {
   const navigate = useNavigate();

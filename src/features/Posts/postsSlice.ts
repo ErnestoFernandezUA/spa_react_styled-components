@@ -79,6 +79,6 @@ export const {
   setError,
 } = postsSlice.actions;
 
-export const selectPosts = (state: RootState) => state.server.storage;
-export const selectPostStatusLoading = (state: RootState) => state.server.statusLoading;
-export const selectPostError = (state: RootState) => state.server.error;
+export const selectPosts = (state: RootState) => state.posts.storage;
+export const selectPostStatusLoading = (state: RootState) => state.posts.statusLoading;
+export const selectPostError = (state: RootState) => state.posts.error;
