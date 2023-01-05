@@ -6,22 +6,13 @@ import {
 import {
   RootState,
 } from '../../app/store';
-import { Post } from '../../type/Post';
 
 export interface OptionsState {
   theme: 'light' | 'dark';
-
-  storage: Post[];
-  statusLoading: 'idle' | 'loading' | 'failed';
-  error: unknown;
 }
 
 const initialState: OptionsState = {
   theme: 'light',
-
-  storage: [],
-  statusLoading: 'idle',
-  error: null,
 };
 
 const optionsSlice = createSlice({

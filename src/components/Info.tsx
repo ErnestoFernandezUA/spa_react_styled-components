@@ -1,7 +1,7 @@
 import { FC, useMemo } from "react";
 import styled from "styled-components";
 import { Country } from "../type/Country";
-import { Button } from "./Button";
+import { ButtonLink } from "./Button";
 
 const Wrapper = styled.section`
   margin-top: 3rem;
@@ -93,7 +93,7 @@ const TagGroup = styled.div`
 //   color: var(--color-text);
 // `;
 
-const Tag = styled(Button)`
+const Tag = styled(ButtonLink)`
   padding: 0 1rem;
 `;
 

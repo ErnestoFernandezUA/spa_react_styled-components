@@ -1,11 +1,11 @@
 import styled from 'styled-components';
-import { IoMoon, IoMoonOutline } from 'react-icons/io5';
-import { useEffect } from 'react';
-import { Link } from 'react-router-dom'
+import { IoArrowBack, IoMoon, IoMoonOutline } from 'react-icons/io5';
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { Container } from './Container';
 import { useAppDispatch } from '../app/hooks';
 import { useSelector } from 'react-redux';
 import { selectTheme, setTheme } from '../features/Options/optionsSlice';
+import { Button } from './Button';
 
 const HeaderEl = styled.div`
   box-shadow: var(--shadow);
@@ -36,9 +36,20 @@ const ModeSwitcher = styled.div`
   text-transform: capitalize;
 `;
 
+const NavLink = styled(Link)`
+  color: var(--color-text);
+  font-size: var(--fs-md);
+  text-decoration: none;
+  font-weight: var(--fw-light);
+`;
+
 export const Header = () => {
+  const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const theme = useSelector(selectTheme);
+  const {pathname} = useLocation();
+  console.log(window.innerWidth);
+
 
   const toggleTheme = () => dispatch(setTheme(theme === 'light' ? 'dark' : 'light'));
 
@@ -46,7 +57,20 @@ export const Header = () => {
     <HeaderEl>
       <Container>
         <Wrapper>
-          <Title>Where is the world?</Title>
+          { pathname === '/flags' ? (
+            <Button onClick={() => navigate(-1)}>
+              <IoArrowBack/>
+              Back
+            </Button>
+          ) : (
+            <>
+              {(window.innerWidth > 767) && (
+                <Title>Where is the world?</Title>
+              )}
+              <NavLink to="/flags">Flags</NavLink>
+            </>
+          )}
+
           <ModeSwitcher onClick={toggleTheme}>
             {theme === 'light' ? (
               <IoMoon size="14px" />
