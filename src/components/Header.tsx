@@ -50,7 +50,7 @@ export const Header = () => {
           <ModeSwitcher onClick={toggleTheme}>
             {theme === 'light' ? (
               <IoMoon size="14px" />
-              ) : (
+            ) : (
               <IoMoonOutline size="14px" />
             )}
             {' '}
