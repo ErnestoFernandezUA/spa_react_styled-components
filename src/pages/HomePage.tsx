@@ -3,16 +3,11 @@ import { Card } from '../components/Card';
 import Controls from '../components/Controls';
 import { List } from '../components/List';
 import { Country } from '../type/Country';
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useRouteLoaderData } from 'react-router-dom'
 
-interface HomePageProps {
-  countries: Country[];
-}
-
-export const HomePage: FunctionComponent<HomePageProps> = ({
-  countries,  
- }) => {
+export const HomePage: FunctionComponent = () => {
   const navigate = useNavigate();
+  const countries = useRouteLoaderData("root") as Country[];
   const [filteredCountries, setFilteredCountries] = useState(countries);
 
   const handleSearch = useCallback((search: string, region?: string) => {

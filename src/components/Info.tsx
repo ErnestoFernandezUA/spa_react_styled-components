@@ -116,11 +116,13 @@ const Info: FC<InfoProps> = ({
  borders = [],
  countries = [],
 }) => {
-  const bordersArr = useMemo(() => borders.map(b => {
-    return countries.find(c => {
-      return c.alpha3Code === b
-    })?.name;
-  }), [borders, countries]);
+  const bordersArr = useMemo(() => borders
+    .map(b => {
+      return countries.find(c => {
+        return c.alpha3Code === b
+      })?.name;
+    })
+    .filter(el => el !== undefined), [borders, countries]);
 
   return (
     <Wrapper>
@@ -170,7 +172,7 @@ const Info: FC<InfoProps> = ({
                 <Tag
                   key={b} 
                   to={`../country/${b}`}
-                  >
+                >
                   {b}
                 </Tag>
               ))}
