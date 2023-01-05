@@ -1,6 +1,6 @@
 import { Header } from './components/Header';
 import { Main } from './components/Main';
-import { Outlet } from 'react-router-dom'
+import { createHashRouter, Outlet } from 'react-router-dom'
 import { HomePage } from './pages/HomePage';
 import { Details } from './pages/Details';
 import { NotFound } from './pages/NotFound';
@@ -13,7 +13,28 @@ export async function rootLoader() {
   return response;
 }
 
-export const router = createBrowserRouter([
+// export const router = createBrowserRouter([
+//   {
+//     path: "/",
+//     element: <App />,
+//     errorElement: <NotFound />,
+//     loader: rootLoader,
+//     id: "root",
+//     children: [
+//       {
+//         path: "/home",
+//         element: <HomePage />,
+//         id: "homepage"
+//       },
+//       {
+//         path: "/country/:name",
+//         element: <Details />,
+//       },
+//     ],
+//   },
+// ]);
+
+export const router = createHashRouter([
   {
     path: "/",
     element: <App />,
@@ -32,7 +53,6 @@ export const router = createBrowserRouter([
       },
     ],
   },
-
 ]);
 
 function App() {

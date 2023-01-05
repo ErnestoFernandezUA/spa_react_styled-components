@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import ReactDOM from 'react-dom/client';
 import { router } from './App';
 import { Provider } from 'react-redux';
@@ -11,10 +11,18 @@ const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 
+function Opp(){
+  return (
+    <div>
+      Opp
+    </div>
+)};
+
 root.render(
   <Provider store={store}>
     <PersistGate loading={null} persistor={persistor}>
       <RouterProvider router={router} />
+      {/* <Opp /> */}
     </PersistGate>
   </Provider>,
 );
