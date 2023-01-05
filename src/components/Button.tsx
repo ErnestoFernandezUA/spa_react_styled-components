@@ -24,7 +24,7 @@ export const Button = styled.div`
   padding: 0 1rem;
   background-color: var(--colors-ui-base);
   box-shadow: var(--shadow);
-  line-height: 2.5;
+  line-height: 2.5rem;
   border-radius: var(--radii);
   width: fit-content;
 
@@ -37,4 +37,5 @@ export const Button = styled.div`
   color: var(--color-text);
   cursor: pointer;
   text-decoration: none;
+  border: 1px solid red;
 `;

@@ -5,10 +5,11 @@ import { HomePage } from './pages/HomePage';
 import { Details } from './pages/Details';
 import { NotFound } from './pages/NotFound';
 import { getAllCountry } from './api/country';
-import { selectTheme } from './features/Options/optionsSlice';
+import { selectTheme, setScreen } from './features/Options/optionsSlice';
 import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { FlagsPage } from './pages/FlagsPage';
+import { useAppDispatch } from './app/hooks';
 
 export async function rootLoader() {
   const response = await getAllCountry();
@@ -44,10 +45,18 @@ export const router = createHashRouter([
 
 function App() {
   const theme = useSelector(selectTheme);
+  const dispatch = useAppDispatch();
+  
+  useEffect(() => {
+    console.log('dispatch(setDevice(window.innerWidth))');
+    dispatch(setScreen(window.innerWidth));
+  }, [])
 
   useEffect(() => {
     document.body.setAttribute('data-theme', theme);
   }, [theme]);
+
+  console.log('render app');
 
   return (
     <>

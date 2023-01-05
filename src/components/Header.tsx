@@ -2,9 +2,9 @@ import styled from 'styled-components';
 import { IoArrowBack, IoMoon, IoMoonOutline } from 'react-icons/io5';
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { Container } from './Container';
-import { useAppDispatch } from '../app/hooks';
+import { useAppDispatch, useAppSelector } from '../app/hooks';
 import { useSelector } from 'react-redux';
-import { selectTheme, setTheme } from '../features/Options/optionsSlice';
+import { selectDevice, selectTheme, setTheme } from '../features/Options/optionsSlice';
 import { Button } from './Button';
 
 const HeaderEl = styled.div`
@@ -16,7 +16,7 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 2rem 0;
+  padding: 1rem 0;
 `;
 
 const Title = styled(Link).attrs({
@@ -26,6 +26,7 @@ const Title = styled(Link).attrs({
   font-size: var(--fs-sm);
   text-decoration: none;
   font-weight: var(--fw-bold);
+  line-height: 2.5rem;
 `;
 
 const ModeSwitcher = styled.div`
@@ -34,6 +35,7 @@ const ModeSwitcher = styled.div`
   cursor: pointer;
   font-weight: var(--fw-bold);
   text-transform: capitalize;
+  line-height: 2.5rem;
 `;
 
 const NavLink = styled(Link)`
@@ -41,6 +43,7 @@ const NavLink = styled(Link)`
   font-size: var(--fs-md);
   text-decoration: none;
   font-weight: var(--fw-light);
+  line-height: 2.5rem;
 `;
 
 export const Header = () => {
@@ -48,8 +51,8 @@ export const Header = () => {
   const dispatch = useAppDispatch();
   const theme = useSelector(selectTheme);
   const {pathname} = useLocation();
-  console.log(window.innerWidth);
-
+  const screen = useAppSelector(selectDevice);
+  console.log(screen);
 
   const toggleTheme = () => dispatch(setTheme(theme === 'light' ? 'dark' : 'light'));
 
@@ -64,7 +67,7 @@ export const Header = () => {
             </Button>
           ) : (
             <>
-              {(window.innerWidth > 767) && (
+              {(screen !== 'Mobile') && (
                 <Title>Where is the world?</Title>
               )}
               <NavLink to="/flags">Flags</NavLink>
