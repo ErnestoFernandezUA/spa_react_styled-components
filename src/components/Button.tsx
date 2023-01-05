@@ -37,5 +37,4 @@ export const Button = styled.div`
   color: var(--color-text);
   cursor: pointer;
   text-decoration: none;
-  border: 1px solid red;
 `;

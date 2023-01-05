@@ -52,7 +52,6 @@ export const Header = () => {
   const theme = useSelector(selectTheme);
   const {pathname} = useLocation();
   const screen = useAppSelector(selectDevice);
-  console.log(screen);
 
   const toggleTheme = () => dispatch(setTheme(theme === 'light' ? 'dark' : 'light'));
 
@@ -60,7 +59,7 @@ export const Header = () => {
     <HeaderEl>
       <Container>
         <Wrapper>
-          { pathname === '/flags' ? (
+          { pathname !== '/' ? (
             <Button onClick={() => navigate(-1)}>
               <IoArrowBack/>
               Back

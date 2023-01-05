@@ -48,15 +48,12 @@ function App() {
   const dispatch = useAppDispatch();
   
   useEffect(() => {
-    console.log('dispatch(setDevice(window.innerWidth))');
     dispatch(setScreen(window.innerWidth));
   }, [])
 
   useEffect(() => {
     document.body.setAttribute('data-theme', theme);
   }, [theme]);
-
-  console.log('render app');
 
   return (
     <>

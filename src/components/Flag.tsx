@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.article`
@@ -19,6 +19,8 @@ const CardImage = styled.img`
 `;
 
 const CardBody = styled.div`
+  position: absolute;
+
   padding: 1.5rem 1.5rem 2rem;
 `;
 
@@ -56,11 +58,13 @@ interface CardProps {
 }
 
 export const Flag: FC<CardProps> = ({ img, name, info, onClick }) => {
+  const [isActive, setIsActive] = useState(false);
+
   return (
     <Wrapper onClick={onClick}>
+      <CardTitle>{name}</CardTitle>
       <CardImage src={img} alt={name}/>
       <CardBody>
-        <CardTitle>{name}</CardTitle>
         {/* <CardList>
           {info.map(el => (
             <CardListitem key={el.title}>
